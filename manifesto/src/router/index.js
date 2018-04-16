@@ -12,7 +12,8 @@ export default new Router({
     {
       path: '/',
       name: 'MainNav',
-      component: MainNav
+      component: MainNav,
+      props: true
     },
     {
       path: '/1',

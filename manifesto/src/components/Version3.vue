@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
     {{msg}}
-    <p>{{rootData}}</p>
+    <p>{{title}}</p>
   </div>
 </template>
 
 <script>
   export default {
     name: 'Version3',
-    props: ['rootData'],
+    props: ['title'],
     data () {
       return {
         msg: 'This is Version 3'
