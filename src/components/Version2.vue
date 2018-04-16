@@ -27,7 +27,7 @@
 <style scoped>
   .title{
     font-size: 3em;
-    height: 100vh;
+    height: 50vh;
   }
 
   .main{
@@ -38,6 +38,7 @@
   }
 
   .sub{
+    font-size: larger;
   }
 
   .text{
