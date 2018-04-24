@@ -4,6 +4,7 @@ import Version1 from '@/components/Version1'
 import Version2 from '@/components/Version2'
 import Version3 from '@/components/Version3'
 import Version4 from '@/components/Version4'
+import Version5 from '@/components/Version5'
 import MainNav from '@/components/MainNav'
 
 Vue.use(Router)
@@ -37,6 +38,11 @@ export default new Router({
       path: '/4',
       name: 'Version4',
       component: Version4
+    },
+    {
+      path: '/5',
+      name: 'Version5',
+      component: Version5
     },
   ]
 })

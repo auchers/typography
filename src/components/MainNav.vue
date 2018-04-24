@@ -5,14 +5,14 @@
       <p>{{'by '+ author}}</p>
     </header>
       <h3>
-      <router-link to="/1">Version 1</router-link>
+      <router-link to="/4">Version 4</router-link>
     </h3>
     <h3>
-      <router-link to="/2">Version 2</router-link>
+      <router-link to="/5">Version 5</router-link>
     </h3>
-    <h3>
-      <router-link to="/3">Version 3</router-link>
-    </h3>
+    <!--<h3>-->
+      <!--<router-link to="/3">Version 3</router-link>-->
+    <!--</h3>-->
   </div>
 </template>
 

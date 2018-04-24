@@ -4,7 +4,7 @@
     <div class="grid">
       <div class="cell" v-for="line in text">
         <div class="text">
-          <div class="main" v-on:click="handleClick">{{line.main}}</div>
+          <div class="main" v-on:click="handleClick">{{line.main}} {{line.sub}}</div>
           <!--<div class="sub">{{line.sub}}</div>-->
         </div>
       </div>
@@ -48,6 +48,8 @@
     width: 20vw;
     margin: 1em;
     flex: 0 0 auto;
+    max-width: 200px;
+
   }
 
   .text{
@@ -68,7 +70,7 @@
 
   .callout{
     flex: 1 1 auto;
-    font-size: 10vh;
+    font-size: 8vw;
   }
 
 </style>

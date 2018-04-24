@@ -30,6 +30,8 @@
     grid-template-columns: 1fr 1fr;
     padding-top: 2em;
     font-family: "Scala";
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .line{
