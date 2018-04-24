@@ -32,7 +32,6 @@
 <style>
   body{
     font-family: Futura;
-    margin: 3em;
   }
 
   header{

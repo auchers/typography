@@ -66,6 +66,7 @@
 
   .wrapper{
     display: flex;
+    margin: 3em;
   }
 
   .callout{
