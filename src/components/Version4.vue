@@ -1,15 +1,20 @@
 <template>
   <div class="wrapper">
     <!--<p class="title">{{title}}</p>-->
-    <div class="grid">
-      <div class="cell" v-for="line in text">
-        <div class="text">
-          <div class="main" v-on:click="handleClick">{{line.main}} {{line.sub}}</div>
-          <!--<div class="sub">{{line.sub}}</div>-->
+    <div class="col1">
+      <div class="col1-text-wrapper">
+        <div class="cell" v-for="(line, i) in text">
+          <div class="text">
+            <div class="main" v-bind:class="{clicked: hasBeenClicked[i]}" v-on:click="handleClick">{{line.main}} {{line.sub}}</div>
+            <!--<div class="sub">{{line.sub}}</div>-->
+          </div>
         </div>
+        <button v-if="callout.active" class="export">Export to PDF</button>
       </div>
     </div>
-    <div class="callout" v-if="callout.active">{{callout.main}} {{callout.sub}}</div>
+    <div class="callout" v-if="callout.active">
+      <div class="callout-text" v-for="line in callout.main">{{line}}</div>
+    </div>
   </div>
 </template>
 
@@ -20,40 +25,47 @@
     data () {
       return {
         msg: 'This is Version 4',
-        callout: {main: '',
-          sub: '',
-          active: false}
+        callout: {main: [],
+          active: false},
+        mutableText: [],
+        hasBeenClicked: []
       }
+    },
+    created(){
+      this.mutableText = this.text.map((x,i) =>{
+        return {main: x.main, sub: x.sub, orig_i: i}
+      })
+      this.hasBeenClicked = this.text.map(x => {return false});
+      console.log(this.hasBeenClicked)
     },
     methods: {
       handleClick () {
-        // let self = this;
-        let rand = Math.round(Math.random() * this.text.length);
-        let cur = this.text[rand];
+        if (this.mutableText.length > 0){
+          let rand = Math.round(Math.random() * this.mutableText.length-1);
+          let cur = this.mutableText.splice(rand, 1);
+          this.hasBeenClicked[cur[0].orig_i] = true;
 
-        let callout = {
-          main: cur.main,
-          sub: cur.sub,
-          active: true,
+          this.callout.main.splice(0, 0, cur[0].main + ' ' + cur[0].sub)
+          this.callout.active = true;
         }
-
-        this.callout = callout;
       }
     }
   }
 </script>
 
 <style scoped>
-  .grid{
-    width: 20vw;
+  .col1{
     margin: 1em;
-    flex: 0 0 auto;
-    max-width: 200px;
 
   }
 
+  .col1-text-wrapper{
+    position: sticky;
+    top: 4em;
+  }
+
   .text{
-    font-size: 5pt;
+    font-size: 8px;
   }
 
   .text:hover {
@@ -61,12 +73,45 @@
   }
 
   .cell{
-    margin: .3em;
+    margin-bottom: .3em;
   }
 
   .wrapper{
-    display: flex;
+    display: grid;
+    grid-template-columns: 225px auto;
     margin: 3em;
+    font-family: "Futura Std";
+  }
+
+  .callout-text{
+    margin-bottom: 1em;
+  }
+
+  .clicked{
+    text-decoration: goldenrod line-through;
+  }
+
+  button {
+    margin-top: 2em;
+    /*margin-left: .3em;*/
+    height: 2em;
+    width: fit-content;
+    background: none;
+    font-family: "Futura Std";
+    /*position: absolute;*/
+    /*bottom: 1em;*/
+    /*border: none;*/
+    border-bottom-color: goldenrod;
+    border-width: 0 0 2px 0;
+    -webkit-appearance: none;
+    color: unset;
+    border-image: none;
+    padding-left: 0;
+  }
+
+  button:focus {
+    outline:0;
+    font-weight: bolder;
   }
 
   .callout{
