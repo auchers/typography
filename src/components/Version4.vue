@@ -9,16 +9,18 @@
             <!--<div class="sub">{{line.sub}}</div>-->
           </div>
         </div>
-        <button v-if="callout.active" class="export">Export to PDF</button>
+        <button v-if="callout.active" class="export" v-on:click="exportToPDF">Export to PDF</button>
       </div>
     </div>
-    <div class="callout" v-if="callout.active">
-      <div class="callout-text" v-for="line in callout.main">{{line}}</div>
+    <div id="manifesto" class="callout" v-if="callout.active">
+      <div class="callout-text" v-bind:style="{fontFamily:'Futura Std'}" v-for="line in callout.main">{{line}}</div>
     </div>
   </div>
 </template>
 
 <script>
+  // import 'jspdf'
+
   export default {
     name: 'Version4',
     props: ['title', 'author', 'text'],
@@ -48,6 +50,17 @@
           this.callout.main.splice(0, 0, cur[0].main + ' ' + cur[0].sub)
           this.callout.active = true;
         }
+      },
+      exportToPDF (){
+        const html2pdf = require('html2pdf.js')
+
+        let html = document.getElementById('manifesto');
+
+        html2pdf(html, {
+          margin: 5,
+          filename: 'manifesto.pdf',
+          html2canvas:  { dpi: 192, letterRendering: true },
+        })
       }
     }
   }
