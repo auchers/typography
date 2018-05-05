@@ -14,6 +14,7 @@
     </div>
     <div id="manifesto" class="callout" v-if="callout.active">
       <div class="callout-text" v-bind:style="{fontFamily:'Futura Std'}" v-for="line in callout.main">{{line}}</div>
+      <div class="attribution" v-bind:style="{fontFamily:'Futura Std'}">From the '<a href="http://sallypotter.com/blog/details/13630/barefoot-filmmaking">{{title}}</a>' by {{author}}</div>
     </div>
   </div>
 </template>
@@ -68,7 +69,7 @@
 
 <style scoped>
   .col1{
-    margin: 1em;
+    margin: 1rem;
 
   }
 
@@ -82,7 +83,8 @@
   }
 
   .text:hover {
-    font-weight: bolder;
+    /*font-weight: bolder;*/
+    cursor: pointer;
   }
 
   .cell{
@@ -111,9 +113,6 @@
     width: fit-content;
     background: none;
     font-family: "Futura Std";
-    /*position: absolute;*/
-    /*bottom: 1em;*/
-    /*border: none;*/
     border-bottom-color: goldenrod;
     border-width: 0 0 2px 0;
     -webkit-appearance: none;
@@ -129,7 +128,23 @@
 
   .callout{
     flex: 1 1 auto;
-    font-size: 8vw;
+    font-size: 5em;
+    line-height: 1.2em;
+    margin: 1rem;
+  }
+
+  .attribution{
+    font-size: small;
+  }
+
+  a{
+    color: unset;
+    text-decoration: none;
+    /*text-decoration: goldenrod underline;*/
+  }
+
+  a:hover{
+    font-weight: bold;
   }
 
 </style>

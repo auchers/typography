@@ -2,17 +2,24 @@
   <div class="mainNav">
     <header>
       <h1>{{title}}</h1>
-      <p>{{'by '+ author}}</p>
+      <h3>{{'by '+ author}}</h3>
     </header>
-      <h3>
-      <router-link to="/4">Version 4</router-link>
+      <p>(5 Iterations for ‘Typography and Visual Design‘ at Parson School of Design)</p>
+    <h3>
+      <router-link to="/1">Version 1</router-link>
+    </h3>
+    <h3>
+      <router-link to="/2">Version 2</router-link>
+    </h3>
+    <h3>
+      <router-link to="/3">Version 3</router-link>
+    </h3>
+    <h3>
+      <router-link to="/4">Version 4 [FINAL]</router-link>
     </h3>
     <h3>
       <router-link to="/5">Version 5</router-link>
     </h3>
-    <!--<h3>-->
-      <!--<router-link to="/3">Version 3</router-link>-->
-    <!--</h3>-->
   </div>
 </template>
 
@@ -35,7 +42,7 @@
   }
 
   header{
-    margin-bottom: 4em;
+    /*margin-bottom: 4em;*/
   }
 
   h1{
@@ -43,7 +50,7 @@
   }
 
   h3{
-    margin:0 3em 0  0;
+    margin:0 2em 0  0;
     display: inline-flex;
     font-weight: normal;
   }
@@ -55,6 +62,9 @@
 
   a:hover{
     font-weight: bolder;
+  }
+  .mainNav{
+    margin: 2em;
   }
 
 </style>

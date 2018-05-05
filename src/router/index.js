@@ -13,6 +13,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Version4',
+      component: Version4
+    },
+    {
+      path: '/all',
       name: 'MainNav',
       component: MainNav,
       props: true
