@@ -13,8 +13,10 @@
       </div>
     </div>
     <div id="manifesto" class="callout" v-if="callout.active">
-      <div class="callout-text" v-bind:style="{fontFamily:'Futura Std'}" v-for="line in callout.main">{{line}}</div>
-      <div class="attribution" v-bind:style="{fontFamily:'Futura Std'}">From the '<a href="http://sallypotter.com/blog/details/13630/barefoot-filmmaking">{{title}}</a>' by {{author}}</div>
+      <div class="callout-text" v-bind:style="{fontFamily:'Joanna MT Std'}" v-for="line in callout.main">{{line}}
+      <div class="em-dash">—</div>
+      </div>
+      <div class="attribution" v-bind:style="{fontFamily:'Joanna MT Std'}">From the ‘<a href="http://sallypotter.com/blog/details/13630/barefoot-filmmaking">{{title}}</a>’ by {{author}}</div>
     </div>
   </div>
 </template>
@@ -79,7 +81,7 @@
   }
 
   .text{
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .text:hover {
@@ -95,11 +97,12 @@
     display: grid;
     grid-template-columns: 225px auto;
     margin: 3em;
-    font-family: "Futura Std";
+    font-family: "Joanna MT Std";
   }
 
-  .callout-text{
-    margin-bottom: 1em;
+  .em-dash{
+    margin: 1.5rem;
+    margin-left:0;
   }
 
   .clicked{
@@ -112,7 +115,7 @@
     height: 2em;
     width: fit-content;
     background: none;
-    font-family: "Futura Std";
+    font-family: "Joanna MT Std";
     border-bottom-color: goldenrod;
     border-width: 0 0 2px 0;
     -webkit-appearance: none;
@@ -129,18 +132,19 @@
   .callout{
     flex: 1 1 auto;
     font-size: 5em;
-    line-height: 1.2em;
-    margin: 1rem;
+    line-height: 1.1em;
+    margin-left: 3rem;
+    margin-top: 0;
+    vertical-align: text-top;
   }
 
   .attribution{
-    font-size: small;
+    font-size: medium;
   }
 
   a{
     color: unset;
     text-decoration: none;
-    /*text-decoration: goldenrod underline;*/
   }
 
   a:hover{
