@@ -51,7 +51,7 @@ export default {
           "sub": "(never speak negatively about your, colleagues)"
         },
         {
-          "main": "Ban the word 'compromise' (or the phrase 'it will do')",
+          "main": "Ban the word ‘compromise’ (or the phrase ‘it will do’)",
           "sub": "(the disappointment in yourself will haunt you later)"
         },
         {
